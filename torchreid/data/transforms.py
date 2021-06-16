@@ -165,7 +165,7 @@ def build_transforms_part(height, width,part_num, part_):
 
     transforms = []
 
-    transforms += [Resize((height, width))]
+    transforms += [Resize_M(height, width)]
     transforms += [Crop_part(part_num, part_)]
 
     transforms += [ToTensor()]
@@ -289,7 +289,7 @@ def build_transforms(height, width, transforms='random_flip', norm_mean=[0.485, 
 
     print('Building train transforms ...')
     transform_tr = []
-    transform_tr += [Resize((height, width))]
+    transform_tr += [Resize_M(height, width)]
     print('+ resize to {}x{}'.format(height, width))
     if 'random_flip' in transforms:
         print('+ random flip')
@@ -315,7 +315,7 @@ def build_transforms(height, width, transforms='random_flip', norm_mean=[0.485, 
     print('+ to torch tensor of range [0, 1]')
     print('+ normalization (mean={}, std={})'.format(norm_mean, norm_std))
     transform_te = Compose([
-        Resize((height, width)),
+        Resize_M(height, width),
         ToTensor(),
         normalize,
     ])

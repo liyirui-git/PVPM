@@ -22,7 +22,8 @@ __image_datasets = {
     'partial_reid':Paritial_REID,
     'p_ethz':P_ETHZ,
     'p_duke':P_Dukereid,
-    'o_duke':Occluded_duke
+    'o_duke':Occluded_duke,
+    'bikeperson': BikePerson
 }
 
 

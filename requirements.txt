@@ -1,6 +1,10 @@
-numpy
+numpy==1.16
 Cython
 h5py
 Pillow
 six
 scipy
+torchvision
+scikit-learn
+matplotlib
+opencv-python==3.4.7.28

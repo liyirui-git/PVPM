@@ -40,6 +40,7 @@ class Market1501(ImageDataset):
         # allow alternative directory structure
         self.data_dir = self.dataset_dir
         data_dir = osp.join(self.data_dir, 'Market-1501-v15.09.15')
+        print(">>> " + data_dir)
         if osp.isdir(data_dir):
             self.data_dir = data_dir
         else:

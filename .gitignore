@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# 数据集
+dataset/
+
+# 本地的运行结果
+result/
+
 # C extensions
 *.so
 
@@ -144,3 +150,4 @@ debug.py
 .Spotlight-V100
 .Trashes
 ._*
+

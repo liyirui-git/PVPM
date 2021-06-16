@@ -25,6 +25,7 @@ class Occluded_REID(ImageDataset):
             self.data_dir = data_dir
         else:
             warnings.warn('The current data structure is deprecated.')
+        print(">>> " + self.data_dir)
         self.query_dir=osp.join(self.data_dir, 'occluded_body_images')
         self.gallery_dir=osp.join(self.data_dir, 'whole_body_images')
 

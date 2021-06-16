@@ -292,6 +292,9 @@ def load_pretrained_weights(model, weight_path):
         if k.startswith('module.'):
             k = k[7:] # discard module.
         
+        # if k.startswith('classi'):
+        #     print(">>> [K]" + str(k) + " | " + str(model_dict[k].size()))
+        #     print(">>> [V]" + str(v) + " | " + str(v.size()))
         if k in model_dict and model_dict[k].size() == v.size():
             new_state_dict[k] = v
             matched_layers.append(k)
@@ -300,7 +303,7 @@ def load_pretrained_weights(model, weight_path):
     
     model_dict.update(new_state_dict)
     model.load_state_dict(model_dict)
-    
+
     if len(matched_layers) == 0:
         warnings.warn(
             'The pretrained weights "{}" cannot be loaded, '
