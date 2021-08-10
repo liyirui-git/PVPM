@@ -14,6 +14,8 @@ from torchreid.utils import read_image
 import cv2
 import numpy as np
 
+from torchvision.transforms import Resize, RandomHorizontalFlip, ToTensor, Normalize
+
 class BikePerson(ImageDataset):
     '''Bike-Person
     Reference:
@@ -119,5 +121,17 @@ class BikePerson(ImageDataset):
             return img, pid, camid, img_path, pose
         else:
             if self.transform is not None:
-                img = self.transform(img)
+                #### this line code have some problem, so it was replaced
+                # img = self.transform(img)
+                #### I find it want to use a transform.Compose object
+                # use print(str(self.transform)) and find out I can use this code below to run the programme
+                rhf = RandomHorizontalFlip()
+                tt = ToTensor()
+                nml = Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+                resize = Resize([384, 192])
+                img = nml(tt(rhf(resize(img))))
+                # img = resize(img)
+                # img = rhf(img)
+                # img = tt(img)
+                # img = nml(img)
             return img, pid, camid, img_path

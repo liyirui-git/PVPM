@@ -1,6 +1,12 @@
 #!/bin/bash -x
-cd PATH_TO_openpose-master/
-path=PATH_TO_YOUR_DATASET_ROOT/Market-1501-v15.09.15/
+###
+ # @Author: Li, Yirui
+ # @Date: 2021-05-25
+ # @Description: Add display hyper-parameter in bash command, to ban displaying in display.
+ # @FilePath: /liyirui/PycharmProjects/PVPM/scripts/openpose_market.sh
+### 
+cd /home/liyirui/PycharmProjects/openpose/
+path=/home/liyirui/PycharmProjects/PVPM/dataset/Market-1501-v15.09.15/
 
 image_dir=bounding_box_train/
 output_dir=bounding_box_pose_train
@@ -13,7 +19,8 @@ output_dir=bounding_box_pose_train
 --heatmaps_add_parts true \
 --heatmaps_add_PAFs true \
 --write_heatmaps ${path}${output_dir} \
---net_resolution -1x384
+--net_resolution -1x384 \
+--display 0
 
 image_dir=bounding_box_test/
 output_dir=bounding_box_pose_test
@@ -26,7 +33,8 @@ output_dir=bounding_box_pose_test
 --heatmaps_add_parts true \
 --heatmaps_add_PAFs true \
 --write_heatmaps ${path}${output_dir} \
---net_resolution -1x384
+--net_resolution -1x384 \
+--display 0
 
 image_dir=query/
 output_dir=query_pose
@@ -39,4 +47,5 @@ output_dir=query_pose
 --heatmaps_add_parts true \
 --heatmaps_add_PAFs true \
 --write_heatmaps ${path}${output_dir} \
---net_resolution -1x384
+--net_resolution -1x384 \
+--display 0
